@@ -1,0 +1,303 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* To hide navbar items we don't want to show */
+.hidden {
+  display: none !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #e0095f;
+  --ifm-color-primary-dark: #7c49ff;
+  --ifm-color-primary-darker: #6837fc;
+  --ifm-color-primary-darkest: #5425e8;
+  --ifm-color-primary-light: #ae8fff;
+  --ifm-color-primary-lighter: #bca1ff;
+  --ifm-color-primary-lightest: #d5c4ff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: "Inter";
+  --ifm-font-size-base: 92%;
+  --icon-color: #22194d; /* icon color */
+  --icon-circle-color: #f6f3ee; /* circle color */
+  --button-primary-color: #7b51fb;
+  --button-primary-hover: #5d3dc2;
+  --card-bg-hover: #7b51fb;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #e0095f;
+  --ifm-color-primary-dark: #7c49ff;
+  --ifm-color-primary-darker: #6837fc;
+  --ifm-color-primary-darkest: #5425e8;
+  --ifm-color-primary-light: #ae8fff;
+  --ifm-color-primary-lighter: #bca1ff;
+  --ifm-color-primary-lightest: #d5c4ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #111111; /* Base dark background */
+  --ifm-background-surface-color: #222221; /* Lighter dark background for cards/sections */
+  --icon-color: #22194d; /* icon color */
+  --icon-circle-color: #7b51fb; /* circle color */
+  --button-primary-color: #7b51fb;
+  --button-primary-hover: #5d3dc2;
+  --card-bg-hover: #7b51fb;
+}
+
+/* Card styles */
+.card {
+  padding: 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--ifm-color-primary-lightest);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="light"] .card {
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(35, 41, 54, 0.05);
+  border-color: #d7d7d7;
+}
+
+[data-theme="dark"] .card {
+  background: var(--ifm-background-surface-color);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 16px rgba(35, 41, 54, 0.1);
+  background: var(--card-bg-hover);
+  color: white;
+  p {
+    color: white;
+  }
+}
+
+/* Card title and text styles */
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25rem; /* Increased from 1.1rem */
+  font-weight: 600; /* Added bold */
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.card p {
+  font-size: 1rem; /* Increased from 0.95rem */
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Card link styles */
+.card a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Grid layout for cards */
+
+/* Section styles */
+.section {
+  margin: 3rem 0;
+}
+
+.section h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Sidebar Method labels */
+.api-method > .menu__link {
+  align-items: center;
+  justify-content: start;
+}
+
+.api-method > .menu__link::before {
+  width: 50px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  margin-right: var(--ifm-spacing-horizontal);
+  text-align: center;
+  flex-shrink: 0;
+  border-color: transparent;
+  color: white;
+}
+
+.get > .menu__link::before {
+  content: "get";
+  background-color: #2e8555;
+}
+
+.put > .menu__link::before {
+  content: "put";
+  background-color: var(--openapi-code-blue);
+}
+
+.post > .menu__link::before {
+  content: "post";
+  background-color: var(--openapi-code-green);
+}
+
+.delete > .menu__link::before {
+  content: "del";
+  background-color: var(--openapi-code-red);
+}
+
+.patch > .menu__link::before {
+  content: "patch";
+  background-color: var(--openapi-code-orange);
+}
+
+/* Homepage buttons */
+.button.button--primary {
+  background-color: var(--button-primary-color);
+  color: #ffffff;
+  border: none;
+  transition: background-color 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button.button--primary:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.button.button--lg {
+  font-weight: 700;
+  line-height: 44px;
+  padding: 0 20px;
+  height: 44px;
+}
+
+/* Icon container styles */
+.card-header {
+  display: flex;
+  align-items: left;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flex-column {
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+/* Icon styles */
+.card-icon {
+  font-size: 30px !important; /* Increased from 24px */
+  padding: 10px; /* Increased from 12px for larger circle */
+}
+
+/* Add bottom padding */
+main.container {
+  padding-bottom: 5rem;
+}
+
+/* Badge colors specifically for API content area */
+.openapi__heading ~ * .badge--primary {
+  background-color: #2e8555 !important;
+  border-color: #2e8555 !important;
+}
+
+/* Section background alternation for dark mode */
+[data-theme="dark"] section:nth-child(even) {
+  background: var(--ifm-background-surface-color);
+  padding: 3rem 0;
+  margin: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+[data-theme="dark"] section:nth-child(odd) {
+  background: #111111;
+  padding: 3rem 0;
+  margin: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+[data-theme="dark"] section:nth-child(4n + 1),
+[data-theme="dark"] section:nth-child(4n + 2) {
+  background: #111111;
+  padding: 3rem 0;
+  margin: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+[data-theme="dark"] section:nth-child(4n + 3),
+[data-theme="dark"] section:nth-child(4n + 4) {
+  background: var(--ifm-background-surface-color);
+  padding: 3rem 0;
+  margin: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+section > div,
+section > h2 {
+  margin: 0 auto;
+  max-width: var(--ifm-container-width);
+  padding: 0 var(--ifm-spacing-horizontal);
+  width: 100%;
+}
+
+section > h2 {
+  padding-left: var(--ifm-spacing-horizontal);
+}
+
+.container {
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+  padding: 0 var(--ifm-spacing-horizontal);
+  width: 100%;
+}
+
+@media (max-width: 996px) {
+  [data-theme="dark"] section:nth-child(4n + 1),
+  [data-theme="dark"] section:nth-child(4n + 2),
+  [data-theme="dark"] section:nth-child(4n + 3),
+  [data-theme="dark"] section:nth-child(4n + 4),
+  [data-theme="dark"] section:nth-child(odd),
+  [data-theme="dark"] section:nth-child(even) {
+    width: 100%;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
