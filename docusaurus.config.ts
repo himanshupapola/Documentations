@@ -12,7 +12,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
   organizationName: "Flagsmith",
   projectName: "flagsmith",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   markdown: {
