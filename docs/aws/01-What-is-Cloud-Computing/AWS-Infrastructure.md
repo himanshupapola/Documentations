@@ -44,7 +44,7 @@ Regions = geographic locations (e.g., North Virginia)
 
 AZs = isolated data center zones inside a Region
 
-![AWS Pricing](/img/aws/01/Image_06.png)
+![AWS Pricing](/img/aws/01/image_06.png)
 
 ---
 
