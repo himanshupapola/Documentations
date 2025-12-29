@@ -1,6 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 
@@ -10,8 +8,21 @@ const config: Config = {
   url: "https://docs.flagsmith.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",
+
+  // ✅ ALGOLIA VERIFICATION (REQUIRED)
+  headTags: [
+    {
+      tagName: "meta",
+      attributes: {
+        name: "algolia-site-verification",
+        content: "675E1F43D23918FA",
+      },
+    },
+  ],
+
   organizationName: "Flagsmith",
   projectName: "flagsmith",
+
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
@@ -27,11 +38,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
-          routeBasePath: "/", // Serve the docs at the site's root
-
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          routeBasePath: "/",
+          docItemComponent: "@theme/ApiItem",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -44,42 +52,28 @@ const config: Config = {
     docs: {
       sidebar: { autoCollapseCategories: true, hideable: true },
     },
+
     algolia: {
-      // The application ID provided by Algolia
       appId: "MGPE2FRVE0",
-      // Public API key: it is safe to commit it
       apiKey: "dd394fec7a4b6f1427dd6e3d978711ca",
       indexName: "flagsmith",
     },
+
     tagManager: {
       trackingID: "GTM-5ZV5K5G",
     },
+
     navbar: {
-      // title: "Flagsmith",
-      // logo: {
-      //   alt: "Flagsmith Logo",
-      //   src: "img/logo.svg",
-      // },
       items: [
-        // {
-        //   type: "docSidebar",
-        //   sidebarId: "tutorialSidebar",
-        //   position: "left",
-        //   label: "React",
-        // },
         {
           type: "docSidebar",
           sidebarId: "aws",
           position: "left",
           label: "AWS CLF-02",
         },
-        // {
-        //   label: "Edge API Specification",
-        //   position: "left",
-        //   to: "/edge-api/",
-        // },
       ],
     },
+
     footer: {
       style: "dark",
       links: [
@@ -122,13 +116,7 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Bullet Train Ltd. Built with Docusaurus.`,
     },
-    // announcementBar: {
-    //     id: 'support_us',
-    //     content: `If you like Flagsmith, give us a star 🌟 on <a target="_blank" rel="noopener noreferrer" href="https://github.com/Flagsmith/flagsmith">GitHub</a> and follow us ❤️ on <a target="_blank" rel="noopener noreferrer" href="https://x.com/getflagsmith">X</a>`,
-    //     backgroundColor: '#5d60cc',
-    //     textColor: '#ffffff',
-    //     isCloseable: true,
-    // },
+
     prism: {
       additionalLanguages: [
         "java",
@@ -145,42 +133,15 @@ const config: Config = {
         "json",
       ],
     },
+
     languageTabs: [
-      {
-        highlight: "python",
-        language: "python",
-        logoClass: "python",
-      },
-      {
-        highlight: "bash",
-        language: "curl",
-        logoClass: "bash",
-      },
-      {
-        highlight: "csharp",
-        language: "csharp",
-        logoClass: "csharp",
-      },
-      {
-        highlight: "go",
-        language: "go",
-        logoClass: "go",
-      },
-      {
-        highlight: "javascript",
-        language: "nodejs",
-        logoClass: "nodejs",
-      },
-      {
-        highlight: "ruby",
-        language: "ruby",
-        logoClass: "ruby",
-      },
-      {
-        highlight: "php",
-        language: "php",
-        logoClass: "php",
-      },
+      { highlight: "python", language: "python", logoClass: "python" },
+      { highlight: "bash", language: "curl", logoClass: "bash" },
+      { highlight: "csharp", language: "csharp", logoClass: "csharp" },
+      { highlight: "go", language: "go", logoClass: "go" },
+      { highlight: "javascript", language: "nodejs", logoClass: "nodejs" },
+      { highlight: "ruby", language: "ruby", logoClass: "ruby" },
+      { highlight: "php", language: "php", logoClass: "php" },
       {
         highlight: "java",
         language: "java",
