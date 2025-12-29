@@ -24,7 +24,7 @@ sidebar_position: 4
 - Services: Not all services/features are in every region.
 - Pricing: Varies by region; check AWS Pricing.
 
-![AWS Pricing](/img/aws/01/Image_05.png)
+![AWS Pricing](/img/aws/01/image_05.png)
 
 ---
 

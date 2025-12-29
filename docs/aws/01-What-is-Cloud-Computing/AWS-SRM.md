@@ -22,4 +22,4 @@ AWS and the customer share responsibilities for security and compliance in the c
 - Protect operating systems, platforms, and network traffic within your instances.
 - Ensure compliance for workloads deployed on AWS services.
 
-![AWS Pricing](/img/aws/01/Image_08.png)
+![AWS Pricing](/img/aws/01/image_08.png)
