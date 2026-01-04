@@ -1,61 +1,166 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global styles
+ * =========================
  */
 
-/* To hide navbar items we don't want to show */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Hide unwanted navbar items */
 .hidden {
   display: none !important;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
-/* You can override the default Infima variables here. */
+/* =========================
+   LIGHT THEME (DEFAULT)
+   ========================= */
 :root {
-  --ifm-color-primary: #e0095f;
+  --ifm-color-primary: #2909e0;
   --ifm-color-primary-dark: #7c49ff;
   --ifm-color-primary-darker: #6837fc;
   --ifm-color-primary-darkest: #5425e8;
   --ifm-color-primary-light: #ae8fff;
   --ifm-color-primary-lighter: #bca1ff;
   --ifm-color-primary-lightest: #d5c4ff;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
   --ifm-font-family-base: "Inter";
   --ifm-font-size-base: 92%;
-  --icon-color: #22194d; /* icon color */
-  --icon-circle-color: #f6f3ee; /* circle color */
+  --ifm-code-font-size: 95%;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --icon-color: #22194d;
+  --icon-circle-color: #f6f3ee;
+
   --button-primary-color: #7b51fb;
   --button-primary-hover: #5d3dc2;
+
   --card-bg-hover: #7b51fb;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
-  --ifm-color-primary: #e0095f;
-  --ifm-color-primary-dark: #7c49ff;
-  --ifm-color-primary-darker: #6837fc;
-  --ifm-color-primary-darkest: #5425e8;
-  --ifm-color-primary-light: #ae8fff;
-  --ifm-color-primary-lighter: #bca1ff;
-  --ifm-color-primary-lightest: #d5c4ff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: #111111; /* Base dark background */
-  --ifm-background-surface-color: #222221; /* Lighter dark background for cards/sections */
-  --icon-color: #22194d; /* icon color */
-  --icon-circle-color: #7b51fb; /* circle color */
+/* =========================
+   DARK THEME VARIABLES (AMOLED BLACK)
+   ========================= */
+html[data-theme="dark"] {
+  --ifm-color-primary: #09e03f;
+
+  --ifm-background-color: #020204;
+  --ifm-background-surface-color: #06070a;
+
+  --ifm-font-color-base: #e8eaf0;
+  --ifm-color-emphasis-700: #b1b6c4;
+  --ifm-color-emphasis-600: #9aa0b0;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
+
+  --icon-color: #7b51fb;
+  --icon-circle-color: #7b51fb;
+
   --button-primary-color: #7b51fb;
   --button-primary-hover: #5d3dc2;
-  --card-bg-hover: #7b51fb;
+
+  --card-bg-hover: #111622;
 }
 
-/* Card styles */
+/* =========================
+   BASE BACKGROUND
+   ========================= */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background-color: var(--ifm-background-color);
+}
+
+html[data-theme="dark"] .main-wrapper,
+html[data-theme="dark"] main,
+html[data-theme="dark"] article,
+html[data-theme="dark"] .container {
+  background-color: transparent;
+}
+
+/* =========================
+   NAVBAR / FOOTER
+   ========================= */
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .navbar__inner,
+html[data-theme="dark"] .footer {
+  background-color: var(--ifm-background-surface-color);
+}
+
+/* Navbar separator */
+html[data-theme="dark"] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 -1px 0 rgba(9, 224, 63, 0.2);
+}
+
+/* =========================
+   SIDEBAR (DESKTOP + MOBILE)
+   ========================= */
+html[data-theme="dark"] .theme-doc-sidebar-container {
+  background-color: var(--ifm-background-surface-color);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+html[data-theme="dark"] .navbar-sidebar {
+  background-color: var(--ifm-background-surface-color);
+}
+
+html[data-theme="dark"] .navbar-sidebar__backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Correct menu scoping */
+html[data-theme="dark"] .theme-doc-sidebar-container .menu,
+html[data-theme="dark"] .navbar-sidebar .menu {
+  background-color: transparent;
+}
+
+html[data-theme="dark"] .menu__link {
+  color: #e8eaf0;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+html[data-theme="dark"] .menu__link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #09e03f;
+}
+
+/* ✅ ACTIVE ITEM = GREEN TEXT (NO BORDER) */
+html[data-theme="dark"] .menu__link--active {
+  color: #09e03f;
+  background: rgba(9, 224, 63, 0.08);
+  font-weight: 600;
+}
+
+/* =========================
+   NAVBAR BRAND
+   ========================= */
+.navbar__brand {
+  gap: 0.4rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.navbar__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #7c49ff 0%, #09e03f 60%, #00c2ff 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.navbar__brand:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================
+   CARDS
+   ========================= */
 .card {
   padding: 24px;
   border-radius: 8px;
   transition: all 0.2s ease;
-  border: 1px solid var(--ifm-color-primary-lightest);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -63,241 +168,84 @@
 
 [data-theme="light"] .card {
   background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(35, 41, 54, 0.05);
-  border-color: #d7d7d7;
+  border: 1px solid #d7d7d7;
 }
 
 [data-theme="dark"] .card {
-  background: var(--ifm-background-surface-color);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: #06070a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0px 8px 16px rgba(35, 41, 54, 0.1);
+  transform: translateY(-3px);
   background: var(--card-bg-hover);
-  color: white;
-  p {
-    color: white;
-  }
+  color: #ffffff;
 }
 
-/* Card title and text styles */
-.card h3 {
-  margin-top: 0;
-  font-size: 1.25rem; /* Increased from 1.1rem */
-  font-weight: 600; /* Added bold */
-  margin-bottom: 0.5rem;
-  color: var(--ifm-heading-color);
-}
-
-.card p {
-  font-size: 1rem; /* Increased from 0.95rem */
-  line-height: 1.5;
-  color: var(--ifm-color-emphasis-700);
-  margin-bottom: 1rem;
-  flex-grow: 1;
-}
-
-/* Card link styles */
-.card a {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
-/* Grid layout for cards */
-
-/* Section styles */
-.section {
-  margin: 3rem 0;
-}
-
-.section h2 {
-  margin-bottom: 24px;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-/* Sidebar Method labels */
-.api-method > .menu__link {
-  align-items: center;
-  justify-content: start;
-}
-
-.api-method > .menu__link::before {
-  width: 50px;
-  height: 20px;
-  font-size: 12px;
-  line-height: 20px;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 0.25rem;
-  border: 1px solid;
-  margin-right: var(--ifm-spacing-horizontal);
-  text-align: center;
-  flex-shrink: 0;
-  border-color: transparent;
-  color: white;
-}
-
-.get > .menu__link::before {
-  content: "get";
-  background-color: #2e8555;
-}
-
-.put > .menu__link::before {
-  content: "put";
-  background-color: var(--openapi-code-blue);
-}
-
-.post > .menu__link::before {
-  content: "post";
-  background-color: var(--openapi-code-green);
-}
-
-.delete > .menu__link::before {
-  content: "del";
-  background-color: var(--openapi-code-red);
-}
-
-.patch > .menu__link::before {
-  content: "patch";
-  background-color: var(--openapi-code-orange);
-}
-
-/* Homepage buttons */
+/* =========================
+   BUTTONS
+   ========================= */
 .button.button--primary {
   background-color: var(--button-primary-color);
   color: #ffffff;
   border: none;
-  transition: background-color 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .button.button--primary:hover {
   background-color: var(--button-primary-hover);
 }
 
-.button.button--lg {
-  font-weight: 700;
-  line-height: 44px;
-  padding: 0 20px;
-  height: 44px;
+/* =========================
+   MARKDOWN / TEXT
+   ========================= */
+html[data-theme="dark"] .markdown,
+html[data-theme="dark"] .markdown p,
+html[data-theme="dark"] .markdown li {
+  color: #e8eaf0;
 }
 
-/* Icon container styles */
-.card-header {
-  display: flex;
-  align-items: left;
-  gap: 1rem;
-  margin-bottom: 1rem;
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3 {
+  color: #ffffff;
 }
 
-.flex-column {
-  flex-direction: column;
-  align-items: left;
-  text-align: left;
+/* =========================
+   CODE BLOCKS
+   ========================= */
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code {
+  background-color: #030405;
+  color: #e8eaf0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Icon styles */
-.card-icon {
-  font-size: 30px !important; /* Increased from 24px */
-  padding: 10px; /* Increased from 12px for larger circle */
-}
-
-/* Add bottom padding */
-main.container {
-  padding-bottom: 5rem;
-}
-
-/* Badge colors specifically for API content area */
-.openapi__heading ~ * .badge--primary {
-  background-color: #2e8555 !important;
-  border-color: #2e8555 !important;
-}
-
-/* Section background alternation for dark mode */
-[data-theme="dark"] section:nth-child(even) {
-  background: var(--ifm-background-surface-color);
+/* =========================
+   SECTIONS
+   ========================= */
+[data-theme="dark"] section {
+  background: var(--ifm-background-color);
   padding: 3rem 0;
-  margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 
-[data-theme="dark"] section:nth-child(odd) {
-  background: #111111;
-  padding: 3rem 0;
-  margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+[data-theme="dark"] section:nth-of-type(even) {
+  background: #030405;
 }
 
-[data-theme="dark"] section:nth-child(4n + 1),
-[data-theme="dark"] section:nth-child(4n + 2) {
-  background: #111111;
-  padding: 3rem 0;
-  margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
-[data-theme="dark"] section:nth-child(4n + 3),
-[data-theme="dark"] section:nth-child(4n + 4) {
-  background: var(--ifm-background-surface-color);
-  padding: 3rem 0;
-  margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
+/* Layout safety */
 section > div,
 section > h2 {
-  margin: 0 auto;
-  max-width: var(--ifm-container-width);
-  padding: 0 var(--ifm-spacing-horizontal);
-  width: 100%;
-}
-
-section > h2 {
-  padding-left: var(--ifm-spacing-horizontal);
-}
-
-.container {
   max-width: var(--ifm-container-width);
   margin: 0 auto;
   padding: 0 var(--ifm-spacing-horizontal);
   width: 100%;
 }
 
+/* =========================
+   MOBILE FIX
+   ========================= */
 @media (max-width: 996px) {
-  [data-theme="dark"] section:nth-child(4n + 1),
-  [data-theme="dark"] section:nth-child(4n + 2),
-  [data-theme="dark"] section:nth-child(4n + 3),
-  [data-theme="dark"] section:nth-child(4n + 4),
-  [data-theme="dark"] section:nth-child(odd),
-  [data-theme="dark"] section:nth-child(even) {
+  [data-theme="dark"] section {
     width: 100%;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
   }
 }

@@ -3,13 +3,13 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 
 const config: Config = {
-  title: "Docs",
-  tagline: "Open Source Feature Flags and Remote Config",
+  title: "CodeNotes",
+  tagline: "React, AWS CLF-02, and AWS SAA-C03 notes",
   url: "https://docs.flagsmith.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",
 
-  // ✅ ALGOLIA VERIFICATION (REQUIRED)
+  // ✅ ALGOLIA VERIFICATION
   headTags: [
     {
       tagName: "meta",
@@ -24,10 +24,12 @@ const config: Config = {
   projectName: "flagsmith",
 
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
 
   themes: ["@docusaurus/theme-mermaid", "docusaurus-theme-openapi-docs"],
@@ -50,7 +52,10 @@ const config: Config = {
 
   themeConfig: {
     docs: {
-      sidebar: { autoCollapseCategories: true, hideable: true },
+      sidebar: {
+        autoCollapseCategories: true,
+        hideable: true,
+      },
     },
 
     algolia: {
@@ -64,58 +69,30 @@ const config: Config = {
     },
 
     navbar: {
+      title: "CodeNotes",
       items: [
+        {
+          type: "docSidebar",
+          sidebarId: "react",
+          position: "left",
+          label: "React",
+        },
         {
           type: "docSidebar",
           sidebarId: "aws",
           position: "left",
           label: "AWS CLF-02",
         },
+        {
+          type: "docSidebar",
+          sidebarId: "awsSaa",
+          position: "left",
+          label: "AWS SAA-C03",
+        },
       ],
     },
 
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Flagsmith",
-          items: [
-            {
-              label: "Flagsmith.com",
-              to: "https://flagsmith.com/",
-            },
-          ],
-        },
-        {
-          title: "Open Source",
-          items: [
-            {
-              label: "GitHub",
-              href: "https://github.com/Flagsmith",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "https://flagsmith.com/blog/",
-            },
-          ],
-        },
-        {
-          title: "How-to guides",
-          items: [
-            {
-              label: "Swift/iOS",
-              href: "https://www.flagsmith.com/blog/swift-ios-feature-flags",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Bullet Train Ltd. Built with Docusaurus.`,
-    },
+    // ❌ FOOTER REMOVED COMPLETELY
 
     prism: {
       additionalLanguages: [
